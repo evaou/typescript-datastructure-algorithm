@@ -8,7 +8,7 @@ class MyNode {
     }
 }
 
-class LinkedList {
+class SinglyLinkedList {
     head: MyNode | null;
     tail: MyNode | null;
     length: number;
@@ -101,7 +101,7 @@ class LinkedList {
     } 
 }
 
-var myList = new LinkedList(10);
+var myList = new SinglyLinkedList(10);
 myList.append(5);
 myList.printList();
 
