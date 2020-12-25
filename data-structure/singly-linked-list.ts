@@ -99,6 +99,30 @@ class SinglyLinkedList {
 
         return removedNode;
     } 
+
+    reverse(): void {
+        if (this.length === 1) {
+            return;
+        }
+
+        var firstNode: MyNode = this.head;
+        var secondNode: MyNode = this.head.next;
+        var tmpNode: MyNode;
+
+        while (secondNode) {
+            tmpNode = secondNode.next;
+            secondNode.next = firstNode;
+            firstNode = secondNode;
+            secondNode = tmpNode;
+        }
+
+        this.head.next = null;
+        this.tail = this.head;
+        this.head = firstNode;
+
+        return;
+    }
+
 }
 
 var myList = new SinglyLinkedList(10);
@@ -118,4 +142,7 @@ myList.insert(100, 99);
 myList.printList();
 
 console.log(myList.remove(3));
+myList.printList();
+
+myList.reverse();
 myList.printList();
