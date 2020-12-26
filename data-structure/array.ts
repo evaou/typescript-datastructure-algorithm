@@ -37,6 +37,27 @@ class MyArray {
         delete this.data[this.length - 1];
         this.length--;
     }
+
+    reverse(str: string): string {
+        if (str.length <= 1) {
+            return str;
+        }
+
+        var arr = str.split("");
+        var tmp: string;
+        var index: number = 0;
+        var targetIndex: number;
+
+        while (index < arr.length / 2) {
+            targetIndex = arr.length - 1 - index;
+            tmp = arr[index];
+            arr[index] = arr[targetIndex];
+            arr[targetIndex] = tmp;
+            index++;
+        }
+
+        return arr.join("");
+    }
 }
 
 var newArray = new MyArray();
@@ -49,3 +70,7 @@ newArray.push("are");
 newArray.push("nice");
 newArray.delete(1);
 console.log(newArray);
+
+var str = "Hi hello world!"
+var newArray2 = new MyArray();
+console.log(newArray2.reverse(str))
