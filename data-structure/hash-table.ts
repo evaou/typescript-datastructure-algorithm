@@ -23,7 +23,7 @@ class HashTable {
 
         if (!this.data[hashValue]) {
             this.data[hashValue] = [];
-        } 
+        }
 
         this.data[hashValue].push(item);
     }
@@ -31,7 +31,7 @@ class HashTable {
     get(key: string): any {
         var hashValue: number = this._hash(key);
         var currentBucket = this.data[hashValue];
-        
+
         if (currentBucket) {
             for (var i = 0; i < currentBucket.length; i++) {
                 if (currentBucket[i][0] === key) {
