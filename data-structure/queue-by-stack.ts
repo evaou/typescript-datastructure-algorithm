@@ -1,56 +1,58 @@
-class Queue2 {
-  first: number[];
-  last: number[];
+namespace QueueByStack {
+    class Queue {
+        first: number[];
+        last: number[];
 
-  constructor() {
-    this.first = [];
-    this.last = [];
-  }
+        constructor() {
+            this.first = [];
+            this.last = [];
+        }
 
-  enqueue(x: number): void {
-    let firstLength: number = this.first.length;
-    for (let i = 0; i < firstLength; i++) {
-      this.last.push(this.first.pop());
+        enqueue(x: number): void {
+            let firstLength: number = this.first.length;
+            for (let i = 0; i < firstLength; i++) {
+                this.last.push(this.first.pop());
+            }
+            this.last.push(x);
+        }
+
+        dequeue(): number {
+            let lastLength: number = this.last.length;
+            for (let i = 0; i < lastLength; i++) {
+                this.first.push(this.last.pop());
+            }
+
+            return this.first.pop();
+        }
+
+        peek(): number {
+            if (this.last.length > 0) {
+                return this.last[0];
+            }
+
+            return this.first[this.first.length - 1];
+        }
+
+        isEmpty(): boolean {
+            if (this.first.length || this.last.length) {
+                return false;
+            }
+
+            return true;
+        }
     }
-    this.last.push(x);
-  }
 
-  dequeue(): number {
-    let lastLength: number = this.last.length;
-    for (let i = 0; i < lastLength; i++) {
-      this.first.push(this.last.pop());
-    }
+    let myQueue: Queue = new Queue();
+    myQueue.enqueue(1);
+    myQueue.enqueue(2);
+    myQueue.enqueue(3);
+    myQueue.enqueue(4);
 
-    return this.first.pop();
-  }
+    console.log(myQueue.dequeue());
+    myQueue.enqueue(5);
 
-  peek(): number {
-    if (this.last.length > 0) {
-      return this.last[0];
-    }
-
-    return this.first[this.first.length - 1];
-  }
-
-  isEmpty(): boolean {
-    if (this.first.length || this.last.length) {
-      return false;
-    }
-
-    return true;
-  }
+    console.log(myQueue.dequeue());
+    console.log(myQueue.dequeue());
+    console.log(myQueue.dequeue());
+    console.log(myQueue.dequeue());
 }
-
-let myQueue2: Queue2 = new Queue2();
-myQueue2.enqueue(1);
-myQueue2.enqueue(2);
-myQueue2.enqueue(3);
-myQueue2.enqueue(4);
-
-console.log(myQueue2.dequeue());
-myQueue2.enqueue(5);
-
-console.log(myQueue2.dequeue());
-console.log(myQueue2.dequeue());
-console.log(myQueue2.dequeue());
-console.log(myQueue2.dequeue());
