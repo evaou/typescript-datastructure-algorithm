@@ -1,35 +1,35 @@
 class Stack {
-  array: string[];
+    array: string[];
 
-  constructor() {
-    this.array = [];
-  }
-
-  peek(): string | null {
-    return this.array[this.array.length - 1];
-  }
-
-  pop(): string | null {
-    if (this.array.length === 0) {
-      return null;
+    constructor() {
+        this.array = [];
     }
 
-    return this.array.pop();
-  }
-
-  push(value: string): Stack {
-    this.array.push(value);
-
-    return this;
-  }
-
-  isEmpty(): boolean {
-    if (this.array.length === 0) {
-      return true;
-    } else {
-      return false;
+    peek(): string | null {
+        return this.array[this.array.length - 1];
     }
-  }
+
+    pop(): string | null {
+        if (this.array.length === 0) {
+            return null;
+        }
+
+        return this.array.pop();
+    }
+
+    push(value: string): Stack {
+        this.array.push(value);
+
+        return this;
+    }
+
+    isEmpty(): boolean {
+        if (this.array.length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 const myStack = new Stack();
