@@ -1,44 +1,44 @@
 class MyQueue {
-  first: number[];
-  last: number[];
+    first: number[];
+    last: number[];
 
-  constructor() {
-    this.first = [];
-    this.last = [];
-  }
-
-  push(x: number): void {
-    let firstLength: number = this.first.length;
-    for (let i = 0; i < firstLength; i++) {
-      this.last.push(this.first.pop());
-    }
-    this.last.push(x);
-  }
-
-  pop(): number {
-    let lastLength: number = this.last.length;
-    for (let i = 0; i < lastLength; i++) {
-      this.first.push(this.last.pop());
+    constructor() {
+        this.first = [];
+        this.last = [];
     }
 
-    return this.first.pop();
-  }
-
-  peek(): number {
-    if (this.last.length > 0) {
-      return this.last[0];
+    push(x: number): void {
+        let firstLength: number = this.first.length;
+        for (let i = 0; i < firstLength; i++) {
+            this.last.push(this.first.pop());
+        }
+        this.last.push(x);
     }
 
-    return this.first[this.first.length - 1];
-  }
+    pop(): number {
+        let lastLength: number = this.last.length;
+        for (let i = 0; i < lastLength; i++) {
+            this.first.push(this.last.pop());
+        }
 
-  empty(): boolean {
-    if (this.first.length || this.last.length) {
-      return false;
+        return this.first.pop();
     }
 
-    return true;
-  }
+    peek(): number {
+        if (this.last.length > 0) {
+            return this.last[0];
+        }
+
+        return this.first[this.first.length - 1];
+    }
+
+    empty(): boolean {
+        if (this.first.length || this.last.length) {
+            return false;
+        }
+
+        return true;
+    }
 }
 
 var obj = new MyQueue();

@@ -12,16 +12,16 @@ function findDuplicate(nums: number[]): number {
     }
 
     return undefined;
-};
+}
 
-var arr = [1,3,4,2,2];
+var arr = [1, 3, 4, 2, 2];
 console.log(findDuplicate(arr)); // 2
 
 arr = [2, 5, 1, 2, 3, 5, 1, 2, 4];
 console.log(findDuplicate(arr)); // 2
 
-arr = [2, 1, 1, 2, 3, 5, 1, 2, 4]; 
-console.log(findDuplicate(arr)); // 1 
+arr = [2, 1, 1, 2, 3, 5, 1, 2, 4];
+console.log(findDuplicate(arr)); // 1
 
-arr = [2, 3, 4, 5]; 
+arr = [2, 3, 4, 5];
 console.log(findDuplicate(arr)); // undefined
