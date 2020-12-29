@@ -8,3 +8,5 @@
 
     $ tsc data-structure/array.ts
     $ node data-strucutre/array
+
+### [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
