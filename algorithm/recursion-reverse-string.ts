@@ -1,7 +1,5 @@
-// tsc recursion-reverse-string.ts --downlevelIteration
-
 function reverseStringIterative(str: string): string {
-    let strArray: string[] = [...str];
+    let strArray: string[] = str.split("");
     let strLength: number = str.length;
     let tmp: string;
 
