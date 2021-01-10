@@ -17,6 +17,21 @@ function fibonacciDP() {
     };
 }
 
-let fastFib = fibonacciDP();
+function fibonacciBottomUp(num: number): number {
+    if (num < 2) {
+        return num;
+    }
 
+    let fibArr = [0, 1];
+
+    for (let i = 2; i <= num; i++) {
+        fibArr.push(fibArr[i - 1] + i);
+    }
+
+    return fibArr.pop();
+}
+
+let fastFib = fibonacciDP();
 console.log(fastFib(10));
+
+console.log(fibonacciBottomUp(10));
