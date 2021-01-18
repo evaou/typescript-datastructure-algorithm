@@ -1,3 +1,40 @@
+function trap(height: number[]): number {
+    let leftmostIdx = 0;
+    let rightmostIdx = height.length - 1;
+    let areaSum = 0;
+    let tmpIdx;
+
+    while (leftmostIdx < rightmostIdx - 1) {
+        if (height[leftmostIdx] <= height[rightmostIdx]) {
+            tmpIdx = leftmostIdx + 1;
+
+            while (
+                tmpIdx < rightmostIdx &&
+                height[leftmostIdx] >= height[tmpIdx]
+            ) {
+                areaSum += height[leftmostIdx] - height[tmpIdx];
+                tmpIdx++;
+            }
+
+            leftmostIdx = tmpIdx;
+        } else {
+            tmpIdx = rightmostIdx - 1;
+
+            while (
+                tmpIdx > leftmostIdx &&
+                height[rightmostIdx] >= height[tmpIdx]
+            ) {
+                areaSum += height[rightmostIdx] - height[tmpIdx];
+                tmpIdx--;
+            }
+
+            rightmostIdx = tmpIdx;
+        }
+    }
+
+    return areaSum;
+}
+
 function getTrappedWater(area: number[][], height: number[]): number {
     let sum = 0;
 
@@ -18,7 +55,7 @@ function getTrappedWater(area: number[][], height: number[]): number {
     return sum;
 }
 
-function trap(height: number[]): number {
+function trap2(height: number[]): number {
     let waterArea: number[][] = [];
     let leftP = 0;
     let rightP = height.length - 1;
@@ -27,7 +64,9 @@ function trap(height: number[]): number {
         if (height[leftP] <= height[rightP]) {
             for (let tmpP = leftP + 1; tmpP <= rightP; tmpP++) {
                 if (height[tmpP] >= height[leftP]) {
-                    waterArea.push([leftP, tmpP]);
+                    if (tmpP > leftP + 1) {
+                        waterArea.push([leftP, tmpP]);
+                    }
                     leftP = tmpP;
                     break;
                 }
@@ -35,7 +74,9 @@ function trap(height: number[]): number {
         } else {
             for (let tmpP = rightP - 1; tmpP >= leftP; tmpP--) {
                 if (height[tmpP] >= height[rightP]) {
-                    waterArea.push([rightP, tmpP]);
+                    if (rightP > tmpP + 1) {
+                        waterArea.push([rightP, tmpP]);
+                    }
                     rightP = tmpP;
                     break;
                 }
