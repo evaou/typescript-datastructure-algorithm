@@ -4,19 +4,15 @@ function getTrappedWater(area: number[][], height: number[]): number {
     for (let pairP of area) {
         const p1 = pairP[0];
         const p2 = pairP[1];
-        const areaWidth = Math.abs(p1 - p2) - 1;
-        const areaHight = Math.min(height[p1], height[p2]);
-        let totalArea = areaWidth * areaHight;
+        const areaHeight = Math.min(height[p1], height[p2]);
 
         for (
             let index = Math.min(p1, p2) + 1;
             index < Math.max(p1, p2);
             index++
         ) {
-            totalArea -= height[index];
+            sum += areaHeight - height[index];
         }
-
-        sum += totalArea;
     }
 
     return sum;
