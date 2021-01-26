@@ -1,54 +1,37 @@
 class MyQueue {
-    first: number[];
-    last: number[];
+    inStack: number[];
+    outStack: number[];
 
     constructor() {
-        this.first = [];
-        this.last = [];
+        this.inStack = [];
+        this.outStack = [];
     }
 
     push(x: number): void {
-        let firstLength: number = this.first.length;
-        for (let i = 0; i < firstLength; i++) {
-            this.last.push(this.first.pop());
-        }
-        this.last.push(x);
+        this.inStack.push(x);
     }
 
     pop(): number {
-        let lastLength: number = this.last.length;
-        for (let i = 0; i < lastLength; i++) {
-            this.first.push(this.last.pop());
+        if (this.outStack.length === 0) {
+            while (this.inStack.length > 0) {
+                this.outStack.push(this.inStack.pop());
+            }
         }
 
-        return this.first.pop();
+        return this.outStack.pop();
     }
 
     peek(): number {
-        if (this.last.length > 0) {
-            return this.last[0];
+        if (this.outStack.length === 0) {
+            while (this.inStack.length > 0) {
+                this.outStack.push(this.inStack.pop());
+            }
         }
 
-        return this.first[this.first.length - 1];
+        return this.outStack[this.outStack.length - 1];
     }
 
     empty(): boolean {
-        if (this.first.length || this.last.length) {
-            return false;
-        }
-
-        return true;
+        return this.inStack.length === 0 && this.outStack.length === 0;
     }
 }
-
-var obj = new MyQueue();
-obj.push(1);
-obj.push(2);
-obj.push(3);
-obj.push(4);
-console.log(obj.pop());
-obj.push(5);
-console.log(obj.pop());
-console.log(obj.pop());
-console.log(obj.pop());
-console.log(obj.pop());
