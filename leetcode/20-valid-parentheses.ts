@@ -12,7 +12,7 @@ function isValid(s: string): boolean {
     let topChar: string;
 
     for (let currentChar of s) {
-        if (currentChar in bracketMap) {
+        if (bracketMap[currentChar]) {
             stackArr.push(currentChar);
         } else {
             topChar = stackArr.pop();
