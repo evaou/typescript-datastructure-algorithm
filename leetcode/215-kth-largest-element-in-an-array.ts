@@ -32,29 +32,28 @@ function partition(
     return leftIdx;
 }
 
-function quickSort(
+function quickSelect(
     nums: number[],
     startIdx: number,
     endIdx: number,
     kIdx: number
-) {
+): number {
     if (startIdx >= endIdx) {
-        return;
+        return nums[startIdx];
     }
 
     let pivotIdx = endIdx;
     pivotIdx = partition(nums, startIdx, endIdx - 1, pivotIdx);
     if (pivotIdx === kIdx) {
-        return;
+        return nums[kIdx];
+    } else if (pivotIdx < kIdx) {
+        return quickSelect(nums, pivotIdx + 1, endIdx, kIdx);
+    } else {
+        return quickSelect(nums, startIdx, pivotIdx - 1, kIdx);
     }
-
-    quickSort(nums, pivotIdx + 1, endIdx, kIdx);
-    quickSort(nums, startIdx, pivotIdx - 1, kIdx);
 }
 
 function findKthLargest(nums: number[], k: number): number {
     let kIdx = nums.length - k;
-    quickSort(nums, 0, nums.length - 1, kIdx);
-
-    return nums[kIdx];
+    return quickSelect(nums, 0, nums.length - 1, kIdx);
 }
