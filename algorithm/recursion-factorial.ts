@@ -1,3 +1,11 @@
+function findFactorialTailRecursive(num: number, base: number = 1): number {
+    if (num === 0) {
+        return 1;
+    }
+
+    return findFactorialTailRecursive(num - 1, num * base);
+}
+
 function findFactorialRecursive(number: number) {
     if (number <= 2) {
         return number;
@@ -20,6 +28,9 @@ function findFactorialIterative(number: number) {
 }
 
 var result: number;
+result = findFactorialIterative(5);
+console.log(result);
+
 result = findFactorialRecursive(5);
 console.log(result);
 
