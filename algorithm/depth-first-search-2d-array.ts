@@ -37,6 +37,7 @@ function dfs(
   }
 }
 
+// time: O(N), space: O(N)
 function traverseDFS(matrix): number[] {
   let seen = new Array(matrix.length)
     .fill(0)
