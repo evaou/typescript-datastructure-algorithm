@@ -24,3 +24,10 @@
     - tail recursion
 - call stack space from *O(log N)* to *O(1)*
     - tail recursion
+- complete binary tree
+    - upperCount = lastCount - 1
+    - lastCount = 2^(height - 1) - 1
+- heap
+    - parentIdx = Math.floor((currentIdx - 1) / 2)
+    - leftChildIdx = 2 * currentIdx + 1
+    - rightChildIdx = 2 * currentIdx + 2
