@@ -1,15 +1,3 @@
-let adjList = [
-  [1, 3],
-  [0],
-  [3, 8],
-  [0, 2, 4, 5],
-  [3, 6],
-  [3],
-  [4, 7],
-  [6],
-  [2],
-];
-
 function graphBFS(graph: number[][]): number[] {
   let result: number[] = [];
   let queue: number[] = [0];
@@ -30,5 +18,17 @@ function graphBFS(graph: number[][]): number[] {
 
   return result;
 }
+
+let adjList = [
+  [1, 3],
+  [0],
+  [3, 8],
+  [0, 2, 4, 5],
+  [3, 6],
+  [3],
+  [4, 7],
+  [6],
+  [2],
+];
 
 console.log(graphBFS(adjList));
