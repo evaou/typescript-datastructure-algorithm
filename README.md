@@ -31,3 +31,5 @@
     - parentIdx = Math.floor((currentIdx - 1) / 2)
     - leftChildIdx = 2 * currentIdx + 1
     - rightChildIdx = 2 * currentIdx + 2
+- acyclic
+    - topological sort for Directed Acyclic Graph
