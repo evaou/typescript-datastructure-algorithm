@@ -118,27 +118,58 @@ namespace leetcode743 {
     }
   }
 
-  // time: O(ElogN), space: O(E + N)
-  function networkDelayTime(times: number[][], n: number, k: number): number {
-    const distance = new Array(n).fill(Infinity); // O(N)
-    const adjList = distance.map(() => []); // O(N)
+  // dijkstra, time: O(ElogN), space: O(E + N)
+  function networkDelayTime2(times: number[][], n: number, k: number): number {
+    const distance = new Array(n).fill(Infinity); // N
+    const adjList = distance.map(() => []); // N
     const heap = new PriorityQueue((a, b) => {
       distance[a] < distance[b];
     });
 
     distance[k - 1] = 0;
     heap.push(k - 1);
-    buildAdjList(times, adjList); // O(E)
+    buildAdjList(times, adjList); // E
 
     while (!heap.isEmpty()) {
-      let currentVertex = heap.pop(); // O(NlogN)
+      let currentVertex = heap.pop(); // NlogN
 
       for (let [adjVertex, adjWeight] of adjList[currentVertex]) {
         let newDistance = distance[currentVertex] + adjWeight;
         if (newDistance < distance[adjVertex]) {
           distance[adjVertex] = newDistance;
-          heap.push(adjVertex); // O(ElogN)
+          heap.push(adjVertex); // ElogN
         }
+      }
+    }
+
+    let maxDistance = Math.max(...distance);
+
+    return maxDistance === Infinity ? -1 : maxDistance;
+  }
+
+  // bellman-ford, time: O(NE), space: O(N)
+  function networkDelayTime(times: number[][], n: number, k: number): number {
+    let distance = new Array(n).fill(Infinity); // N
+
+    distance[k - 1] = 0;
+
+    for (let i = 0; i < n - 1; i++) { // N
+      let count = 0;
+
+      for (let time of times) { // E
+        let start = time[0];
+        let end = time[1];
+        let weight = time[2];
+        let newDistance = distance[start - 1] + weight;
+
+        if (newDistance < distance[end - 1]) {
+          distance[end - 1] = newDistance;
+          count++;
+        }
+      }
+
+      if (count === 0) {
+        break;
       }
     }
 
