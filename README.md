@@ -33,3 +33,5 @@
     - rightChildIdx = 2 * currentIdx + 2
 - acyclic
     - topological sort for Directed Acyclic Graph
+- shortest path
+    - dijkstra algorithm for directed weighted graph
