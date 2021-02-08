@@ -33,5 +33,9 @@
     - rightChildIdx = 2 * currentIdx + 2
 - acyclic
     - topological sort for Directed Acyclic Graph
-- shortest path
-    - dijkstra algorithm for directed weighted graph
+- shortest path in directed weighted graph
+    - positive weight 
+        - dijkstra algorithm
+    - negative weight
+        - bellman-ford algorithm
+        - no negative cycle, distance change after *(N - 1)* iteration
