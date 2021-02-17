@@ -39,3 +39,8 @@
     - negative weight
         - bellman-ford algorithm
         - no negative cycle, distance change after *(N - 1)* iteration
+- dynamic programming
+    - top-down recursive
+    - top-down recursive with memorization
+    - bottom-up recursive with memorization
+    - bottom-up recursive with optimized memorization
