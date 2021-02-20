@@ -2,7 +2,28 @@
 
 ### Set up Environment
 
-    $ npm i @types/node
+    $ npm install
+
+### Set up Debug in VSCode IDE
+Update file path for "args"
+
+    // .vscode/launch.json
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+            "name": "Debug typescript file",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "args": ["${workspaceRoot}/leetcode/208-implement-trie.ts"],
+            "runtimeExecutable": "/usr/local/bin/node"
+            }
+        ]
+    }
+
+
 
 ### Run Program
 
