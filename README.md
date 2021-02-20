@@ -44,3 +44,6 @@
     - top-down recursive with memorization
     - bottom-up recursive with memorization
     - bottom-up recursive with optimized memorization
+- backtracking
+    - hash map
+    - rollback change as invalid 
