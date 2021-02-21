@@ -61,10 +61,7 @@ Update file path for "args"
         - bellman-ford algorithm
         - no negative cycle, distance change after *(N - 1)* iteration
 - dynamic programming
-    - top-down recursive
-    - top-down recursive with memorization
-    - bottom-up recursive with memorization
-    - bottom-up recursive with optimized memorization
+    - bottom-up recursion with two-dimentional memorization
 - backtracking
     - hash map
     - rollback change as invalid 
