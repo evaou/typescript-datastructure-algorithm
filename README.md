@@ -63,4 +63,5 @@ Update file path for "args"
 - dynamic programming
     - bottom-up recursion with one or two dimentional array memorization
 - backtracking
-    - rollback change as invalid 
+    - rollback change as invalid
+    - multiple partitionings or layouts
