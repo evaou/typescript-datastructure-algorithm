@@ -1,35 +1,31 @@
-namespace InsertionSort {
-    function insertionSort(arr: number[]): number[] {
-        if (arr.length < 2) {
-            return arr;
-        }
+// worst time: O(N^2), best time: O(N)
+// space: O(1)
+function insertionSort(arr: number[]): number[] {
+  if (arr.length < 2) {
+    return arr;
+  }
 
-        for (let startIdx = 1; startIdx < arr.length; startIdx++) {
-            let startIdxVal = arr[startIdx];
-            let isInserted: boolean = false;
+  let current: number;
+  let isInserted: boolean;
 
-            for (
-                let comparedIdx = startIdx - 1;
-                comparedIdx >= 0;
-                comparedIdx--
-            ) {
-                if (startIdxVal < arr[comparedIdx]) {
-                    arr[comparedIdx + 1] = arr[comparedIdx];
-                } else {
-                    arr[comparedIdx + 1] = startIdxVal;
-                    isInserted = true;
-                    break;
-                }
-            }
+  for (let j = 1; j < arr.length; j++) {
+    current = arr[j];
+    isInserted = false;
 
-            if (!isInserted) {
-                arr[0] = startIdxVal;
-            }
-        }
-
-        return arr;
+    for (let i = j - 1; i >= 0; i--) {
+      if (current < arr[i]) {
+        arr[i + 1] = arr[i];
+      } else {
+        arr[i + 1] = current;
+        isInserted = true;
+        break;
+      }
     }
 
-    const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
-    console.log("sorted number: " + insertionSort(numbers));
+    if (!isInserted) {
+      arr[0] = current;
+    }
+  }
+
+  return arr;
 }
