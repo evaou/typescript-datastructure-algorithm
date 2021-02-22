@@ -1,4 +1,5 @@
-// time: O(N^2), space: O(1)
+// worst time: O(N^2), best time: O(N)
+// space: O(1)
 function bubbleSort(arr: number[]): number[] {
   let isSwapped: boolean;
 
