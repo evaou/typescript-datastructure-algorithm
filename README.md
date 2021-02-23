@@ -73,3 +73,7 @@ Update file path for "args"
 - backtracking
   - rollback change as invalid
   - multiple partitionings or layouts
+- sliding window
+  - hash map for the index of seen item
+- two pointers
+  - sorted input
