@@ -5,6 +5,7 @@
     $ npm install
 
 ### Set up Debug in VSCode IDE
+
 Update file path for "args"
 
     // .vscode/launch.json
@@ -23,8 +24,6 @@ Update file path for "args"
         ]
     }
 
-
-
 ### Run Program
 
     $ tsc data-structure/array.ts
@@ -35,35 +34,35 @@ Update file path for "args"
 ### [Visual Algorithm](https://visualgo.net/en)
 
 ### Hint
+
 - constant lookup
-    - hash map
+  - hash map
 - constant space
-    - in place
-    - two pointers
+  - in place
+  - two pointers
 - sorted
-    - binary search
-    - time: *O(log N)*
-- sort time from *O(N log N)* to *O(N)*
-    - tail recursion
-- call stack space from *O(log N)* to *O(1)*
-    - tail recursion
+  - binary search
+  - time: _O(log N)_
+- tail recursion
+  - sort time from _O(N log N)_ to _O(N)_
+  - call stack space from _O(log N)_ to _O(1)_
 - complete binary tree
-    - upperCount = lastCount - 1
-    - lastCount = 2^(height - 1) - 1
+  - upperCount = lastCount - 1
+  - lastCount = 2^(height - 1) - 1
 - heap
-    - parentIdx = Math.floor((currentIdx - 1) / 2)
-    - leftChildIdx = 2 * currentIdx + 1
-    - rightChildIdx = 2 * currentIdx + 2
+  - parentIdx = Math.floor((currentIdx - 1) / 2)
+  - leftChildIdx = 2 \* currentIdx + 1
+  - rightChildIdx = 2 \* currentIdx + 2
 - acyclic
-    - topological sort for Directed Acyclic Graph
+  - topological sort for Directed Acyclic Graph
 - shortest path in directed weighted graph
-    - positive weight 
-        - dijkstra algorithm
-    - negative weight
-        - bellman-ford algorithm
-        - no negative cycle, distance change after *(N - 1)* iteration
+  - positive weight
+    - dijkstra algorithm
+  - negative weight
+    - bellman-ford algorithm
+    - no negative cycle, distance change after _(N - 1)_ iteration
 - dynamic programming
-    - bottom-up recursion with one or two dimentional array memorization
+  - bottom-up recursion with one or two dimentional array memorization
 - backtracking
-    - rollback change as invalid
-    - multiple partitionings or layouts
+  - rollback change as invalid
+  - multiple partitionings or layouts
