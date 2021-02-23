@@ -49,6 +49,7 @@ Update file path for "args"
 - complete binary tree
   - upperCount = lastCount - 1
   - lastCount = 2^(height - 1) - 1
+  - e.g. min/max heap
 - heap
   - parentIdx = Math.floor((currentIdx - 1) / 2)
   - leftChildIdx = 2 \* currentIdx + 1
