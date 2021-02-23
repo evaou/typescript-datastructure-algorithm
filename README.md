@@ -47,8 +47,10 @@ Update file path for "args"
   - sort time from _O(N log N)_ to _O(N)_
   - call stack space from _O(log N)_ to _O(1)_
 - complete binary tree
-  - upperCount = lastCount - 1
-  - lastCount = 2^(height - 1) - 1
+  - height starts from 0
+  - total count = 2^(height + 1) - 1
+  - last-level count = 2^height
+  - non-last-level total count = last-level count - 1
   - e.g. min/max heap
 - heap
   - parentIdx = Math.floor((currentIdx - 1) / 2)
