@@ -63,7 +63,8 @@ Update file path for "args"
     - dijkstra algorithm
   - negative weight
     - bellman-ford algorithm
-    - no negative cycle, distance change after _(N - 1)_ iteration
+      - e.g. network delay
+      - no negative cycle, distance change after _(N - 1)_ iteration
 - dynamic programming
   - bottom-up recursion with one or two dimentional array memorization
 - backtracking
