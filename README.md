@@ -56,11 +56,14 @@ Update file path for "args"
   - parentIdx = Math.floor((currentIdx - 1) / 2)
   - leftChildIdx = 2 \* currentIdx + 1
   - rightChildIdx = 2 \* currentIdx + 2
-- acyclic
-  - topological sort for Directed Acyclic Graph
+- topological sort
+  - Directed Acyclic Graph
+  - inDegree
 - shortest path in directed weighted graph
   - positive weight
     - dijkstra algorithm
+      - update distances with the smallest weight
+      - min heap
   - negative weight
     - bellman-ford algorithm
       - e.g. network delay
